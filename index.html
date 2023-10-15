@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Flipper</title>
+    <style>
+        html,body {
+            font-size: 8px;
+            overflow: hidden;
+            margin: 0px;
+            padding: 0px;
+        }
+
+        .textDiv {
+            /* border: 2px solid; */
+            background-color: rgb(58, 58, 58);
+            padding: 1%;
+            text-align: center;
+            width: 90%;
+            font-size: 3rem;
+            position: absolute;
+            transform: translate(-50%, -50%);
+            left: 50%;
+            top: 50%;
+            color: white;
+            border-radius: 20px;
+        }
+
+        .textDiv button {
+            background-color: white;
+            font-size: 2rem;
+            padding: 1%;
+            border-radius: 10px;
+            transition: 0.1s;
+
+        }
+        .textDiv button:hover {
+            background-color: white;
+            font-size: 2rem;
+            padding-left: 3%;
+            padding-right: 3%;
+            border-radius: 10px;
+            transition: 0.1s;
+            background-color: rgb(157, 157, 157);
+            color: white;
+        }
+
+        .MainDiv {
+            width: 100vw;
+            height: 100vh;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="MainDiv">
+        <div class="textDiv">
+            <h1>Background Color :<span id="currentColorName"> Color Name</span></h1>
+            <button id="myBtn">Change Background Color</button>
+        </div>
+    </div>
+
+</body>
+<script>
+    function myFun() {
+        const newColor = (Math.floor(Math.random() * 0xFFFFFF)).toString(16);
+        var main_div = document.querySelector(".MainDiv")
+        main_div.style.backgroundColor = `#${newColor}`;
+        const colorText = document.querySelector('#currentColorName');
+        document.getElementById("currentColorName").innerHTML = ` #${newColor}`;
+    }
+
+
+    const btn = document.querySelector('#myBtn');
+    btn.addEventListener("click", myFun)
+
+
+
+</script>
+
+</html>
